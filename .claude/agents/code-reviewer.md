@@ -2,6 +2,7 @@
 name: code-reviewer
 description: Use this agent for comprehensive code review tasks to ensure quality, consistency, and best practices. This agent reviews implemented code for technical quality, security, performance, testing, and documentation. Call this agent when you need to review new implementations, refactored code, or ensure adherence to coding standards. Examples Code quality review, security audit, performance optimization review, test coverage analysis.
 color: green
+model: sonnet
 ---
 
 # Code Reviewer Agent

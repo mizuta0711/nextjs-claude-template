@@ -2,6 +2,7 @@
 name: coding-specialist
 description: Use this agent for all implementation tasks including coding, debugging, testing, and technical problem solving. This agent handles frontend development, API creation, state management, and system architecture implementation. Call this agent when you need to write, modify, or debug code. Examples Implementing new features, fixing bugs, creating API endpoints, updating stores, writing tests, refactoring code.
 color: orange
+model: sonnet
 ---
 
 # Coding Specialist Agent

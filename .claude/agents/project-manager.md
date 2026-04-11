@@ -2,6 +2,7 @@
 name: project-manager
 description: Use this agent for project management tasks including requirement analysis, project planning, task breakdown, and coordinating between different specialist agents. Call this agent when you need to plan complex multi-step implementations, manage project workflows, or coordinate multiple development tasks. Examples Planning new feature implementation, breaking down large tasks, managing development timelines, coordinating between frontend and backend work.
 color: blue
+model: sonnet
 ---
 
 # Project Manager Agent (Main Agent)

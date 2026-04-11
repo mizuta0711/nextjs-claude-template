@@ -2,6 +2,7 @@
 name: documentation-manager
 description: Use this agent for documentation creation, updates, and maintenance tasks. This agent manages technical documentation, API specifications, design documents, and project documentation consistency. Call this agent when documentation needs to be created, updated, or synchronized with code changes. Examples Creating API documentation, updating design specifications, writing feature documentation, maintaining technical guides, updating README files.
 color: purple
+model: sonnet
 ---
 
 # Documentation Manager Agent
