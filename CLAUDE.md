@@ -101,21 +101,25 @@ src/
 ### M: 機能追加・API変更・複数ファイル変更
 
 ```
-設計 → 実装 → /code-review → /build-check → /update-docs → コミット
+設計 → 実装 → /code-review → /build-check → /update-docs → コミット → プッシュ
 ```
+
+- `/update-docs` で全タスク完了を検知すると、自動で sync-check → `completed/` 移動が実行される
 
 ### L: 新機能・大規模変更・DB スキーマ変更
 
 ```
-設計 → /design-review → 実装 → /code-review → /build-check → /update-docs → コミット
+設計 → /design-review → 実装 → /code-review → /build-check → /update-docs → コミット → プッシュ
 ```
+
+- それ以外は M と同じ
 
 ### プッシュ前（共通）
 
 ```
 /pre-push-check → プッシュ
 ```
-- `/sync-check` はフェーズ完了時・大規模変更後に推奨（毎回は不要）
+- `/sync-check` は `/update-docs` の全タスク完了時に自動実行。手動実行は `/complete-feature` で可能（フェーズ完了時・大規模変更後）
 
 ### フロー共通ルール
 - **レビュー前にコミットしないこと**（M, L の場合）
@@ -127,12 +131,13 @@ src/
 テーブル構造の変更（カラム追加・削除・型変更・テーブル追加/削除）を行う際は、以下を**必ず**守ること:
 
 1. **バックアップ実行**: スキーマ変更の**前に** `npx tsx tools/export-to-sql.ts` を実行
-2. **3点同期**: スキーマ変更時は以下の3箇所を**必ず同時に更新**する:
+2. **コメント必須**: カラム追加・変更時は `/// 説明` コメントを必ず付与する（テーブル定義書の自動生成に使用）
+3. **3点同期**: スキーマ変更時は以下の3箇所を**必ず同時に更新**する:
 
 | # | 対象 | ファイル |
 |---|------|---------|
 | 1 | スキーマ | `prisma/schema.prisma` |
-| 2 | 設計書 | `docs/設計書/テーブル定義書.md`（+ Enum定義セクション） |
+| 2 | 設計書 | `npx tsx tools/scripts/generate-table-docs.ts` を実行して自動生成 |
 | 3 | バックアップツール | `tools/export-to-sql.ts`（`ORDERED_TABLES` + `DB_TABLE_MAP`） |
 
 **1つでも更新漏れがあると、バックアップが不完全になる。**
