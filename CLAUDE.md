@@ -95,13 +95,13 @@ src/
 ### S: バグ修正・軽微な変更（UI微調整、テキスト修正、1ファイル程度の修正）
 
 ```
-実装 → /build-check → コミット
+実装 → /build-check → コミット → /done
 ```
 
 ### M: 機能追加・API変更・複数ファイル変更
 
 ```
-設計 → 実装 → /code-review → /build-check → /update-docs → コミット → プッシュ
+設計 → 実装 → /code-review → /build-check → /update-docs → コミット → /done → プッシュ
 ```
 
 - `/update-docs` で全タスク完了を検知すると、自動で sync-check → `completed/` 移動が実行される
@@ -109,7 +109,7 @@ src/
 ### L: 新機能・大規模変更・DB スキーマ変更
 
 ```
-設計 → /design-review → 実装 → /code-review → /build-check → /update-docs → コミット → プッシュ
+設計 → /design-review → 実装 → /code-review → /build-check → /update-docs → コミット → /done → プッシュ
 ```
 
 - それ以外は M と同じ
