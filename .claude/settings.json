@@ -1,0 +1,32 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git commit*)",
+            "command": "node -e \"const{execSync}=require('child_process');try{const r=execSync('npx tsc --noEmit --pretty false 2>&1',{encoding:'utf-8',timeout:60000});console.log(JSON.stringify({systemMessage:'Type check passed.'}))}catch(e){const out=(e.stdout||'').split('\\n').slice(0,15).join('\\n');console.log(JSON.stringify({continue:false,stopReason:'Type check failed. Fix errors before committing:\\n'+out}))}\"",
+            "timeout": 120,
+            "statusMessage": "Running type check before commit..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git commit*)",
+            "command": "node .claude/hooks/post-commit-doc-check.js",
+            "timeout": 10,
+            "statusMessage": "Checking doc sync..."
+          }
+        ]
+      }
+    ]
+  }
+}
