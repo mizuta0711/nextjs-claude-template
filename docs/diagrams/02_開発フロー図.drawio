@@ -1,0 +1,223 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="開発フロー図" id="flow-sml">
+    <mxGraphModel dx="1500" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="開発フロー図 (S / M / L 規模別比較)" style="text;fontSize=22;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="900" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="変更規模に応じて3つのフローを使い分ける。迷ったら M を使う。共通ステップは縦に揃えて表示。" style="text;fontSize=12;align=center;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="300" y="60" width="900" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="col_design" value="設計" style="text;fontSize=11;align=center;fontColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="180" y="95" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="col_dreview" value="設計レビュー" style="text;fontSize=11;align=center;fontColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="95" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="col_impl" value="実装" style="text;fontSize=11;align=center;fontColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="420" y="95" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="col_creview" value="コードレビュー" style="text;fontSize=11;align=center;fontColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="540" y="95" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="col_btest" value="ブラウザテスト" style="text;fontSize=11;align=center;fontColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="660" y="95" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="col_build" value="ビルド確認" style="text;fontSize=11;align=center;fontColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="780" y="95" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="col_docs" value="設計書同期" style="text;fontSize=11;align=center;fontColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="900" y="95" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="col_commit" value="コミット" style="text;fontSize=11;align=center;fontColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1020" y="95" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="col_done" value="完了報告" style="text;fontSize=11;align=center;fontColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1140" y="95" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="col_push" value="プッシュ" style="text;fontSize=11;align=center;fontColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1260" y="95" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="s_lane" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#9CCC65;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="1420" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="s_label" value="S 規模&#xa;&lt;font style=&quot;font-size: 11px&quot;&gt;バグ修正・&#xa;軽微な変更&#xa;1ファイル程度&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9CCC65;strokeColor=#558B2F;fontSize=14;fontStyle=1;fontColor=#FFFFFF;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="50" y="135" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="s_impl" value="実装" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="420" y="155" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s_build" value="/build-check" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#80DEEA;strokeColor=#00838F;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="780" y="155" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s_commit" value="コミット" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1020" y="155" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s_done" value="/done" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BDBDBD;strokeColor=#424242;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1140" y="155" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s_a1" style="endArrow=classic;html=1;strokeColor=#558B2F;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0" edge="1" parent="1" source="s_impl" target="s_build">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s_a2" style="endArrow=classic;html=1;strokeColor=#558B2F;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0" edge="1" parent="1" source="s_build" target="s_commit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s_a3" style="endArrow=classic;html=1;strokeColor=#558B2F;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0" edge="1" parent="1" source="s_commit" target="s_done">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m_lane" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#42A5F5;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="270" width="1420" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="m_label" value="M 規模&#xa;&lt;font style=&quot;font-size: 11px&quot;&gt;機能追加・&#xa;API変更・&#xa;複数ファイル&#xa;変更&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42A5F5;strokeColor=#1565C0;fontSize=14;fontStyle=1;fontColor=#FFFFFF;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="50" y="285" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="m_design" value="設計" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF59D;strokeColor=#F9A825;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="180" y="305" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m_impl" value="実装" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="420" y="305" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m_creview" value="/code-review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFAB91;strokeColor=#D84315;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="540" y="305" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m_btest" value="/browser-test&#xa;&lt;font style=&quot;font-size: 9px&quot;&gt;(UI変更時)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCC80;strokeColor=#E65100;fontSize=12;fontStyle=1;strokeWidth=2;dashed=1" vertex="1" parent="1">
+          <mxGeometry x="660" y="305" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m_build" value="/build-check" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#80DEEA;strokeColor=#00838F;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="780" y="305" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m_docs" value="/update-docs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#1565C0;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="900" y="305" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m_commit" value="コミット" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1020" y="305" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m_done" value="/done" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BDBDBD;strokeColor=#424242;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1140" y="305" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m_push" value="プッシュ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1260" y="305" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m_a1" style="endArrow=classic;html=1;strokeColor=#1565C0;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="m_design" target="m_impl">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m_a2" style="endArrow=classic;html=1;strokeColor=#1565C0;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="m_impl" target="m_creview">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m_a3" style="endArrow=classic;html=1;strokeColor=#1565C0;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="m_creview" target="m_btest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m_a4" style="endArrow=classic;html=1;strokeColor=#1565C0;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="m_btest" target="m_build">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m_a5" style="endArrow=classic;html=1;strokeColor=#1565C0;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="m_build" target="m_docs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m_a6" style="endArrow=classic;html=1;strokeColor=#1565C0;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="m_docs" target="m_commit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m_a7" style="endArrow=classic;html=1;strokeColor=#1565C0;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="m_commit" target="m_done">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m_a8" style="endArrow=classic;html=1;strokeColor=#1565C0;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="m_done" target="m_push">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_lane" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FB8C00;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="420" width="1420" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="l_label" value="L 規模&#xa;&lt;font style=&quot;font-size: 11px&quot;&gt;新機能・&#xa;大規模変更・&#xa;DBスキーマ&#xa;変更&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FB8C00;strokeColor=#BF360C;fontSize=14;fontStyle=1;fontColor=#FFFFFF;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="50" y="435" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="l_design" value="設計" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF59D;strokeColor=#F9A825;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="180" y="455" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l_dreview" value="/design-review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFAB91;strokeColor=#D84315;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="300" y="455" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l_impl" value="実装" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="420" y="455" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l_creview" value="/code-review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFAB91;strokeColor=#D84315;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="540" y="455" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l_btest" value="/browser-test&#xa;&lt;font style=&quot;font-size: 9px&quot;&gt;(UI変更時)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCC80;strokeColor=#E65100;fontSize=12;fontStyle=1;strokeWidth=2;dashed=1" vertex="1" parent="1">
+          <mxGeometry x="660" y="455" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l_build" value="/build-check" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#80DEEA;strokeColor=#00838F;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="780" y="455" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l_docs" value="/update-docs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#1565C0;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="900" y="455" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l_commit" value="コミット" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1020" y="455" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l_done" value="/done" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BDBDBD;strokeColor=#424242;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1140" y="455" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l_push" value="プッシュ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=12;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1260" y="455" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l_a1" style="endArrow=classic;html=1;strokeColor=#BF360C;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="l_design" target="l_dreview">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_a2" style="endArrow=classic;html=1;strokeColor=#BF360C;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="l_dreview" target="l_impl">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_a3" style="endArrow=classic;html=1;strokeColor=#BF360C;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="l_impl" target="l_creview">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_a4" style="endArrow=classic;html=1;strokeColor=#BF360C;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="l_creview" target="l_btest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_a5" style="endArrow=classic;html=1;strokeColor=#BF360C;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="l_btest" target="l_build">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_a6" style="endArrow=classic;html=1;strokeColor=#BF360C;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="l_build" target="l_docs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_a7" style="endArrow=classic;html=1;strokeColor=#BF360C;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="l_docs" target="l_commit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_a8" style="endArrow=classic;html=1;strokeColor=#BF360C;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="l_commit" target="l_done">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_a9" style="endArrow=classic;html=1;strokeColor=#BF360C;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="l_done" target="l_push">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="auto_box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#1565C0;strokeWidth=2;dashed=1" vertex="1" parent="1">
+          <mxGeometry x="885" y="290" width="130" height="245" as="geometry" />
+        </mxCell>
+        <mxCell id="auto_note" value="★ /update-docs で全タスク完了時は&#xa;自動で /sync-check → completed/ 移動" style="text;fontSize=10;align=center;fontColor=#1565C0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="850" y="540" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hook_note1" value="&lt;b&gt;⚡ 型チェックフック&lt;/b&gt; (自動)&#xa;git commit 前に tsc --noEmit を実行。&#xa;型エラー時はコミットをブロック。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#F57C00;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8" vertex="1" parent="1">
+          <mxGeometry x="1000" y="575" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hook_note2" value="&lt;b&gt;⚡ 設計書同期通知フック&lt;/b&gt; (自動)&#xa;git commit 後に変更内容を検査。&#xa;API/サービス/スキーマ変更時は通知。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#F57C00;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8" vertex="1" parent="1">
+          <mxGeometry x="1250" y="575" width="210" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pre_push" value="&lt;b&gt;🔍 /pre-push-check&lt;/b&gt; (プッシュ前・M/L共通)&#xa;未プッシュコミットが .doc-sync.md に記録済みか確認" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8EAF6;strokeColor=#3F51B5;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8" vertex="1" parent="1">
+          <mxGeometry x="1160" y="520" width="300" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" value="★ 判断のポイント" style="text;fontSize=14;fontStyle=1;align=left;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="40" y="655" width="400" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_s" value="&lt;b&gt;S を選ぶケース&lt;/b&gt;&#xa;・UI微調整やテキスト修正&#xa;・1ファイルで完結する小さな変更&#xa;・既存API/DBスキーマに変更なし" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#9CCC65;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8" vertex="1" parent="1">
+          <mxGeometry x="40" y="685" width="460" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_m" value="&lt;b&gt;M を選ぶケース (迷ったらこれ)&lt;/b&gt;&#xa;・機能追加、API変更&#xa;・複数ファイルにまたがる変更&#xa;・設計書の更新が必要な規模" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#42A5F5;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8" vertex="1" parent="1">
+          <mxGeometry x="520" y="685" width="460" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_l" value="&lt;b&gt;L を選ぶケース&lt;/b&gt;&#xa;・新機能の本格実装、アーキテクチャ変更&#xa;・DBスキーマ変更を伴う変更&#xa;・設計に不安があり事前レビューが欲しい時" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FB8C00;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8" vertex="1" parent="1">
+          <mxGeometry x="1000" y="685" width="460" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="note_bottom" value="&lt;b&gt;共通ルール&lt;/b&gt;　・レビュー前にコミットしない (M/L) 　・サブエージェント委譲時はAPI設計書のパスを明示 　・プッシュ前に /pre-push-check を実行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9E6;strokeColor=#B8860B;fontSize=12;align=left;verticalAlign=middle;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="40" y="785" width="1420" height="45" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
