@@ -51,3 +51,7 @@ next-env.d.ts
 # database backup
 tools/dump.sql
 tools/backup/
+
+# browser test evidence
+tests/browser-evidence/*/
+.playwright-mcp/

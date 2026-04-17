@@ -101,17 +101,20 @@ src/
 ### M: 機能追加・API変更・複数ファイル変更
 
 ```
-設計 → 実装 → /code-review → /build-check → /update-docs → コミット → /done → プッシュ
+設計 → 実装 → /code-review → /browser-test → /build-check → /update-docs → コミット → /done → プッシュ
 ```
 
+- 設計書の「4. ブラウザ評価計画」も記入する（`/design-review` 内で評価計画のレビューも実施）
+- `/browser-test`: UI変更を含む場合、評価計画に基づいて `browser-tester` でスポットテストを実施（コードレビュー後の最終形に対して実行）。UI変更なしなら不要
 - `/update-docs` で全タスク完了を検知すると、自動で sync-check → `completed/` 移動が実行される
 
 ### L: 新機能・大規模変更・DB スキーマ変更
 
 ```
-設計 → /design-review → 実装 → /code-review → /build-check → /update-docs → コミット → /done → プッシュ
+設計 → /design-review → 実装 → /code-review → /browser-test → /build-check → /update-docs → コミット → /done → プッシュ
 ```
 
+- `/design-review` で設計書の矛盾 + 評価計画のレビューをチェックしてから実装に入る
 - それ以外は M と同じ
 
 ### プッシュ前（共通）

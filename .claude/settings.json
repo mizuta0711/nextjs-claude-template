@@ -6,6 +6,13 @@
         "hooks": [
           {
             "type": "command",
+            "if": "Bash(npx prisma migrate:*)",
+            "command": "node -e \"const{execSync}=require('child_process');try{execSync('npx tsx tools/export-to-sql.ts',{stdio:'inherit',timeout:30000});console.log(JSON.stringify({systemMessage:'DB backup completed before migrate.'}))}catch(e){console.log(JSON.stringify({continue:false,stopReason:'DB backup failed. Fix before running migrate: '+e.message}))}\"",
+            "timeout": 60,
+            "statusMessage": "Running DB backup before migrate..."
+          },
+          {
+            "type": "command",
             "if": "Bash(git commit*)",
             "command": "node -e \"const{execSync}=require('child_process');try{const r=execSync('npx tsc --noEmit --pretty false 2>&1',{encoding:'utf-8',timeout:60000});console.log(JSON.stringify({systemMessage:'Type check passed.'}))}catch(e){const out=(e.stdout||'').split('\\n').slice(0,15).join('\\n');console.log(JSON.stringify({continue:false,stopReason:'Type check failed. Fix errors before committing:\\n'+out}))}\"",
             "timeout": 120,
