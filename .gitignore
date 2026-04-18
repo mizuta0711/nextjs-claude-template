@@ -47,6 +47,8 @@ next-env.d.ts
 # local tool configs
 .serena/
 .claude/settings.local.json
+.playwright-mcp/
+.vscode/
 
 # database backup
 tools/dump.sql
@@ -54,4 +56,3 @@ tools/backup/
 
 # browser test evidence
 tests/browser-evidence/*/
-.playwright-mcp/
