@@ -10,17 +10,15 @@
         "hooks": [
           {
             "type": "command",
-            "if": "Bash(npx prisma migrate:*)",
-            "command": "node -e \"const{execSync}=require('child_process');try{execSync('npx tsx tools/export-to-sql.ts',{stdio:'inherit',timeout:30000});console.log(JSON.stringify({systemMessage:'DB backup completed before migrate.'}))}catch(e){console.log(JSON.stringify({continue:false,stopReason:'DB backup failed. Fix before running migrate: '+e.message}))}\"",
+            "command": "node .claude/hooks/pre-migrate-backup.js",
             "timeout": 60,
-            "statusMessage": "Running DB backup before migrate..."
+            "statusMessage": "Checking if DB backup is needed..."
           },
           {
             "type": "command",
-            "if": "Bash(git commit*)",
             "command": "node .claude/hooks/pre-commit-type-check.js",
             "timeout": 120,
-            "statusMessage": "Running type check before commit..."
+            "statusMessage": "Checking if type check is needed..."
           }
         ]
       }
@@ -31,7 +29,6 @@
         "hooks": [
           {
             "type": "command",
-            "if": "Bash(git commit*)",
             "command": "node .claude/hooks/post-commit-doc-check.js",
             "timeout": 10,
             "statusMessage": "Checking doc sync..."

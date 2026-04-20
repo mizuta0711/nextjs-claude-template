@@ -1,10 +1,35 @@
 /**
  * PostToolUse フック: git commit 後に設計書同期の必要性をチェック
  *
- * 直近コミットの変更ファイルに API/サービス/スキーマが含まれている場合、
- * Claude に /update-docs の実行を促すメッセージを出力する。
+ * Claude Code の `if` フィールドは公式仕様ではないため、コマンド判定は
+ * 本スクリプト内で stdin の JSON (tool_input.command) を読んで行う。
+ *
+ * - `git commit` を含むコマンド時のみ実行
+ * - 直近コミットの変更ファイルに API/サービス/スキーマが含まれている場合、
+ *   Claude に /update-docs の実行を促すメッセージを出力する
  */
+const fs = require("fs");
 const { execSync } = require("child_process");
+
+let input = "";
+try {
+  input = fs.readFileSync(0, "utf-8");
+} catch {
+  process.exit(0);
+}
+
+let payload = {};
+try {
+  payload = JSON.parse(input || "{}");
+} catch {
+  process.exit(0);
+}
+
+const command = payload?.tool_input?.command || "";
+
+if (!/\bgit\s+commit\b/.test(command)) {
+  process.exit(0);
+}
 
 try {
   const files = execSync("git diff --name-only HEAD~1 HEAD", {
