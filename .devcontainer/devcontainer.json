@@ -1,0 +1,43 @@
+{
+  "name": "nextjs-claude-sandbox",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Next.js Dev Server",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-playwright.playwright"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code && npx -y playwright install --with-deps chromium && npm install",
+
+  "remoteUser": "node",
+
+  "mounts": [
+    "source=${localEnv:USERPROFILE}/.claude,target=/home/node/.claude,type=bind,consistency=cached"
+  ],
+
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+
+  "runArgs": ["--ipc=host"]
+}
