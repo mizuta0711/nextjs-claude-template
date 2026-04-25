@@ -1,26 +1,20 @@
 {
-  "name": "nextjs-claude-sandbox",
+  "name": "nextjs-claude-template",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
 
-  "features": {
-    "ghcr.io/devcontainers/features/git:1": {}
-  },
-
-  "forwardPorts": [3000],
-  "portsAttributes": {
-    "3000": {
-      "label": "Next.js Dev Server",
-      "onAutoForward": "notify"
-    }
-  },
+  // WSL から VS Code を起動した場合のみ HOME が WSL ホームを指す
+  // Windows 側から直接開くと Windows の USERPROFILE になるため、必ず WSL から起動すること
+  "mounts": [
+    "source=${localEnv:HOME}/.claude,target=/home/node/.claude,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.claude.json,target=/home/node/.claude.json,type=bind,consistency=cached"
+  ],
 
   "customizations": {
     "vscode": {
       "extensions": [
         "anthropic.claude-code",
         "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "ms-playwright.playwright"
+        "esbenp.prettier-vscode"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "bash"
@@ -28,16 +22,7 @@
     }
   },
 
-  "postCreateCommand": "npm install -g @anthropic-ai/claude-code && npx -y playwright install --with-deps chromium && npm install",
+  "postCreateCommand": "git config core.autocrlf input && npm install -g @anthropic-ai/claude-code",
 
-  "remoteUser": "node",
-
-  "mounts": [
-    "source=${localEnv:USERPROFILE}/.claude,target=/home/node/.claude,type=bind,consistency=cached"
-  ],
-
-  "workspaceFolder": "/workspace",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-
-  "runArgs": ["--ipc=host"]
+  "remoteUser": "node"
 }
