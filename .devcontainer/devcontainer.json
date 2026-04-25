@@ -11,14 +11,19 @@
 
   "customizations": {
     "vscode": {
+      // コンテナ内の Claude Code はバイパスモード（権限プロンプトなし）で起動する。
+      // コンテナはホスト側資産（/mnt/c など）から隔離されているため、ブラスト
+      // ラディウスはワークスペース内に閉じる。WSL ホスト側で素の claude を
+      // 起動した場合はこの設定は適用されず、毎回確認のデフォルトモードになる。
+      "settings": {
+        "claudeCode.initialPermissionMode": "bypassPermissions",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
       "extensions": [
         "anthropic.claude-code",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode"
-      ],
-      "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash"
-      }
+      ]
     }
   },
 

@@ -3,6 +3,14 @@
   "env": {
     "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "500000"
   },
+  "permissions": {
+    "deny": [
+      "Read(/mnt/**)",
+      "Edit(/mnt/**)",
+      "Write(/mnt/**)",
+      "Bash(*/mnt/**)"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {
