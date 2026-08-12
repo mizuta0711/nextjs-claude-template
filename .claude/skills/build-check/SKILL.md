@@ -1,6 +1,7 @@
 ---
 name: build-check
 description: ビルド・lint・型チェックを一括実行し、結果を報告する。フェーズ完了時やコミット前に実行する。
+allowed-tools: "Bash(npm run build), Bash(npm run lint), Bash(npx tsc --noEmit:*)"
 ---
 
 # ビルド＋品質チェック

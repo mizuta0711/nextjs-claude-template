@@ -9,7 +9,10 @@
  * - `git commit` を含むコマンド時のみ型チェックを実行
  * - それ以外の Bash コマンドは即 exit 0 でスキップ
  * - node_modules/.bin/tsc が存在しない場合はスキップ（テンプレート利用開始直後など）
- * - 型エラー検出時はエラー内容の先頭15行を表示してコミットをブロックする
+ * - 型エラー検出時はエラー内容の先頭15行を添えてコミットをブロックする。
+ *   ブロックは permissionDecision: "deny" を使う（Claude は理由を受け取り、
+ *   型エラーを修正して再度コミットできる）。continue:false は Claude を完全停止
+ *   させてしまい自己修復できなくなるため使わない。
  */
 const fs = require("fs");
 const path = require("path");
@@ -58,8 +61,13 @@ try {
   const out = (e.stdout || "").split("\n").slice(0, 15).join("\n");
   console.log(
     JSON.stringify({
-      continue: false,
-      stopReason: "Type check failed. Fix errors before committing:\n" + out,
+      hookSpecificOutput: {
+        hookEventName: "PreToolUse",
+        permissionDecision: "deny",
+        permissionDecisionReason:
+          "型チェック (tsc --noEmit) に失敗しました。以下を修正してから再度コミットしてください:\n" +
+          out,
+      },
     })
   );
 }

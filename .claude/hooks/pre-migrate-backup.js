@@ -8,7 +8,10 @@
  *
  * - `npx prisma migrate` を含むコマンド時のみ `tools/export-to-sql.ts` を実行
  * - それ以外の Bash コマンドは即 exit 0 でスキップ
- * - backup 失敗時は continue:false で migrate をブロック
+ * - backup 失敗時は continue:false で migrate をブロックし、Claude を停止させる。
+ *   pre-commit-type-check.js が permissionDecision:"deny"（Claude が自力で修正して
+ *   再試行できる）を使うのに対し、こちらを強い停止にしているのは意図的:
+ *   バックアップなしで破壊的な DB 操作へ進ませないため、人間の判断を必ず挟む。
  */
 const { execSync } = require("child_process");
 

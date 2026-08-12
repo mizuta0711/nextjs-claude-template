@@ -1,6 +1,7 @@
 ---
 name: pre-push-check
 description: git push前に必ず実行する。未プッシュの全コミットが設計書に同期済みかをgrepで高速チェックする。
+allowed-tools: "Bash(git log:*), Bash(git diff:*), Grep, Read"
 ---
 
 # プッシュ前 設計書同期チェック

@@ -1,7 +1,49 @@
 {
   "effortLevel": "high",
-  "env": {
-    "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "500000"
+  "autoCompactEnabled": true,
+  "autoCompactWindow": 500000,
+  "enabledMcpjsonServers": ["playwright"],
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)",
+      "Bash(npm run build)",
+      "Bash(npm run lint)",
+      "Bash(npm run dev)",
+      "Bash(npx tsc --noEmit:*)",
+      "Bash(npx prisma generate:*)",
+      "Bash(npx prisma validate:*)",
+      "Bash(npx tsx tools/scripts/generate-table-docs.ts)",
+      "Bash(npx tsx tools/export-to-sql.ts)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(git reset:*)",
+      "Bash(git checkout:*)",
+      "Bash(npx prisma migrate:*)",
+      "Bash(npx prisma db push:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.local)",
+      "Read(./.env.development*)",
+      "Read(./.env.production*)",
+      "Read(./.env.test*)",
+      "Read(./secrets/**)",
+      "Edit(./.env)",
+      "Edit(./.env.local)",
+      "Bash(rm -rf *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(npx prisma migrate reset*)"
+    ]
   },
   "hooks": {
     "PreToolUse": [
@@ -10,15 +52,17 @@
         "hooks": [
           {
             "type": "command",
+            "if": "Bash(npx prisma migrate:*)",
             "command": "node .claude/hooks/pre-migrate-backup.js",
             "timeout": 60,
-            "statusMessage": "Checking if DB backup is needed..."
+            "statusMessage": "DB バックアップを実行中..."
           },
           {
             "type": "command",
+            "if": "Bash(git commit:*)",
             "command": "node .claude/hooks/pre-commit-type-check.js",
             "timeout": 120,
-            "statusMessage": "Checking if type check is needed..."
+            "statusMessage": "型チェックを実行中..."
           }
         ]
       }
@@ -29,9 +73,10 @@
         "hooks": [
           {
             "type": "command",
+            "if": "Bash(git commit:*)",
             "command": "node .claude/hooks/post-commit-doc-check.js",
             "timeout": 10,
-            "statusMessage": "Checking doc sync..."
+            "statusMessage": "設計書同期を確認中..."
           }
         ]
       }

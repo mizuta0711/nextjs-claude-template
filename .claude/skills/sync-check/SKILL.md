@@ -1,6 +1,7 @@
 ---
 name: sync-check
 description: 設計書と実装の網羅的な突き合わせチェック。フェーズ完了時やpush前に実行し、変更駆動では検出できない乖離を発見する。
+allowed-tools: "Bash(git diff:*), Bash(git log:*), Bash(npx tsx tools/scripts/generate-table-docs.ts), Grep, Glob, Read"
 ---
 
 # 設計書 ↔ 実装 網羅的同期チェック

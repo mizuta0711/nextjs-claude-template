@@ -3,6 +3,7 @@ name: browser-tester
 description: ブラウザを実際に操作して機能テスト・UX評価を行うエージェント。Playwright MCPを使ってページ遷移、クリック、フォーム入力、スクリーンショット撮影を実行し、動作確認とUX観点での評価を報告する。実装完了後の動作確認や、UI変更後のビジュアル確認に使用する。
 color: cyan
 model: sonnet
+mcpServers: ["playwright"]
 ---
 
 # Browser Tester Agent

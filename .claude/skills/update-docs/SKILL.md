@@ -3,6 +3,7 @@ name: update-docs
 description: 実装変更に基づいて設計書の更新が必要な箇所を特定し、更新を実行する。コミット前に実行する。
 argument-hint: "[遡るコミット数（省略時は1）]"
 arguments: [depth]
+allowed-tools: "Bash(git diff:*), Bash(git log:*), Bash(npx tsx tools/scripts/generate-table-docs.ts), Grep, Glob, Read"
 ---
 
 # 設計書反映チェック＋更新
