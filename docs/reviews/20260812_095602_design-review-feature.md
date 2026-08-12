@@ -1,7 +1,7 @@
 # Stage 1 設計レビュー結果
 
 - 実施日時: 2026-08-12 09:56
-- 対象: [docs/features/20260812_ハーネス構成刷新_Phase3.md](../features/20260812_ハーネス構成刷新_Phase3.md)
+- 対象: [docs/features/20260812_ハーネス構成刷新_Phase3.md](../features/completed/20260812_ハーネス構成刷新_Phase3.md)
 - モード: feature (Stage 1)
 
 ## 総合判定: ⚠️ 条件付き承認
