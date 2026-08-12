@@ -18,7 +18,7 @@ Playwright MCP を使ってブラウザを操作し、機能テスト・UX評価
 
 - **対象**: 呼び出し元が指定した画面のみ（変更した画面 + 影響を受ける画面）
 - **トリガー**: 機能実装完了後、バグ修正後
-- **チェックリスト**: `.claude/browser-test-checklist.md` の共通項目 + 機能設計書の「4. ブラウザ評価計画」
+- **チェックリスト**: `.claude/skills/browser-test/checklist.md` の共通項目 + 機能設計書の「4. ブラウザ評価計画」
 
 ### フルテスト（フェーズ完了時・リリース前）
 
@@ -76,7 +76,7 @@ tests/browser-evidence/
 ### 1. テスト準備
 
 - 呼び出し元から渡されたエビデンスフォルダパスを確認（未作成なら自分で作成）
-- 対象URLのチェック項目を `.claude/browser-test-checklist.md` と機能設計書から抜粋
+- 対象URLのチェック項目を `.claude/skills/browser-test/checklist.md` と機能設計書から抜粋
 - ブラウザを起動し、対象URLにアクセスする
 
 ### 2. 機能テスト

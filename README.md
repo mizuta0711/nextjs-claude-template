@@ -29,7 +29,7 @@ Claude Code での開発に最適化された Next.js プロジェクトテン�
 - **.claude/01_development_docs/** — 技術設計書テンプレート（アーキテクチャ、DB、API、エラー処理、型定義、サービス、フック、AIプロンプト、開発フローと規模判定）
 - **.claude/02_design_system/** — デザインシステムテンプレート
 - **.claude/03_library_docs/** — ライブラリガイド（Next.js 16, Zustand 5, NextAuth 4）
-- **.claude/browser-test-checklist.md** — ブラウザテストの共通チェックリスト
+- **.claude/skills/browser-test/checklist.md** — ブラウザテストの共通チェックリスト（スキル同梱）
 
 ### 設計書テンプレート
 - **docs/設計書/** — API一覧、テーブル定義書、ER図、サービス一覧、フック一覧、対応表、同期記録（`.doc-sync.md`）
