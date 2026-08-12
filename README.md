@@ -18,7 +18,7 @@ Claude Code での開発に最適化された Next.js プロジェクトテン�
 |--------|------|
 | `/new-feature` | 機能設計書をテンプレートから作成 |
 | `/design-review` | 設計レビュー（`feature` = Stage 1 / `tech` = Stage 2） |
-| `/code-review` | 実装コードのレビュー＋指摘対応 |
+| `/review-impl` | 実装コードのレビュー＋指摘対応 |
 | `/browser-test` | ブラウザでの動作確認・UX評価 |
 | `/build-check` | ビルド + lint の一括実行 |
 | `/update-docs` | 実装変更に基づく設計書の更新 |
@@ -111,7 +111,7 @@ S（軽微な変更）
   実装 → /build-check → コミット → /done
 
 M（機能追加・API変更・UX変更なし）
-  設計 → 実装 → /code-review → /browser-test → /build-check → /update-docs → コミット → /done → プッシュ
+  設計 → 実装 → /review-impl → /browser-test → /build-check → /update-docs → コミット → /done → プッシュ
 
 L（新機能・DBスキーマ変更・UX変更あり）
   Stage 1（機能・画面設計）→ /design-review feature → ユーザー承認

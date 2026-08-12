@@ -1,13 +1,13 @@
-# /code-review スキル実行時の内部動作
+# /review-impl スキル実行時の内部動作
 
-`/code-review` というスラッシュコマンドを入力してから結果が返ってくるまで、裏側で何が起きているかを示すシーケンス図。
+`/review-impl` というスラッシュコマンドを入力してから結果が返ってくるまで、裏側で何が起きているかを示すシーケンス図。
 
 **ポイント**:
 - メインClaude が SKILL.md の手順書を読み、`Agent()` で **code-reviewer サブエージェントを別コンテキストで起動**する
 - サブエージェントはメインとは独立したコンテキストでコード + 設計書を読み、`docs/reviews/` にレビュー結果を書き込む
 - 「重要」な指摘は自動修正、複雑なものはユーザーに確認を求める
 
-この図は `/code-review` を例にしているが、他のスキル（`/design-review`, `/browser-test` 等）もほぼ同じパターンで動作する。
+この図は `/review-impl` を例にしているが、他のスキル（`/design-review`, `/browser-test` 等）もほぼ同じパターンで動作する。
 
 ## 図の構成
 
@@ -15,7 +15,7 @@
 
 | アクター | 役割 |
 |---------|------|
-| **ユーザー** | `/code-review` を入力して実行を依頼する人 |
+| **ユーザー** | `/review-impl` を入力して実行を依頼する人 |
 | **メインClaude** | ユーザーと会話している Claude Code。スキル手順書を読んで処理を進める |
 | **code-reviewer（サブエージェント）** | 活性化バーで起動期間を表示。メインとは独立したコンテキストで動く |
 | **ファイル/Git** | ソースコード、設計書、レビュー結果ファイル、git コマンド |
@@ -24,7 +24,7 @@
 
 | Step | 内容 |
 |------|------|
-| **Step 1: スキル手順書を読む** | `/code-review` 入力後、メインClaude が `SKILL.md` を読み込む |
+| **Step 1: スキル手順書を読む** | `/review-impl` 入力後、メインClaude が `SKILL.md` を読み込む |
 | **Step 2: レビュー対象を特定** | `git diff --name-only` で変更ファイルを把握 |
 | **Step 3: サブエージェント起動** | `Agent(subagent_type: "code-reviewer", ...)` でサブエージェントを別コンテキストで起動。サブは対象コード + 設計書を読み、`docs/reviews/` に指摘を書き込む |
 | **Step 4: 自動修正** | 重要度「重要」で明確な修正方法があれば自動修正、判断が必要な場合はユーザーに確認 |
@@ -37,10 +37,10 @@ sequenceDiagram
     participant Sub as code-reviewer<br/>(サブエージェント)
     participant FS as ファイル/Git
 
-    User->>Main: /code-review と入力
+    User->>Main: /review-impl と入力
 
     Note over Main: Step 1: スキル手順書を読む
-    Main->>FS: .claude/skills/code-review/SKILL.md を読む
+    Main->>FS: .claude/skills/review-impl/SKILL.md を読む
     FS-->>Main: 手順書 (レビュー観点・Step順)
 
     Note over Main: Step 2: レビュー対象を特定
@@ -78,7 +78,7 @@ sequenceDiagram
 
 | ステップ | 内容 |
 |---------|------|
-| ①〜② | `/code-review` を受け取って、メインClaude がスキル手順書を読み込む |
+| ①〜② | `/review-impl` を受け取って、メインClaude がスキル手順書を読み込む |
 | ③〜④ | git で変更ファイルを取得（レビュー対象の特定） |
 | ⑤ | `Agent()` でサブエージェントを起動。これ以降 ⑩ まではサブが別コンテキストで動く |
 | ⑥〜⑩ | サブエージェントがコード・設計書を読み、レビュー結果を `docs/reviews/` に保存してメインに結果サマリーを返す |

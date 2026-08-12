@@ -1,5 +1,5 @@
 ---
-name: code-review
+name: review-impl
 description: 実装コードのレビューを実施する。API設計書との突き合わせ、型安全性、エラーハンドリングを確認し、指摘があれば修正まで行う。
 argument-hint: "[対象ファイルまたはディレクトリ(省略時は直近の変更)]"
 allowed-tools: "Bash(git diff:*), Bash(git log:*), Grep, Glob, Read"
@@ -45,7 +45,7 @@ git diff --name-only HEAD~1
 
 ## Step 3: 結果をファイルに保存 + 報告
 
-レビュー結果を `docs/reviews/YYYYMMDD_HHMMSS_code-review.md` に直接書き込む:
+レビュー結果を `docs/reviews/YYYYMMDD_HHMMSS_review-impl.md` に直接書き込む:
 
 ```markdown
 # コードレビュー結果

@@ -84,7 +84,7 @@ src/
 ### M: 機能追加・API変更・複数ファイル変更（UX変更なし）
 
 ```
-設計 → 実装 → /code-review → /browser-test → /build-check → /update-docs → コミット → /done → プッシュ
+設計 → 実装 → /review-impl → /browser-test → /build-check → /update-docs → コミット → /done → プッシュ
 ```
 
 - 1段階設計（機能設計書の Stage 1 セクションは `⚪ 不要`）
@@ -115,6 +115,7 @@ Stage 2（技術設計）→ /design-review tech → 実装 → 以降 M と同�
 - **レビュー前にコミットしない**（M, L）
 - 設計時、API のリクエスト・レスポンス JSON 例は必須（M, L）
 - サブエージェント委譲時は API 設計書のパスを明示
+- `/review-impl` は本テンプレート独自のレビュー（設計書突き合わせ＋自動修正）。Claude Code 標準の `/code-review`（差分レビュー）と `/code-review ultra`（ブランチ全体のマルチエージェント・クラウドレビュー。ユーザー手動実行・課金あり）も併用できる
 
 ### 補助軸: 変更の性質
 
