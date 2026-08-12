@@ -1,6 +1,8 @@
 ---
 name: update-docs
 description: 実装変更に基づいて設計書の更新が必要な箇所を特定し、更新を実行する。コミット前に実行する。
+argument-hint: "[遡るコミット数（省略時は1）]"
+arguments: [depth]
 ---
 
 # 設計書反映チェック＋更新
@@ -9,11 +11,12 @@ description: 実装変更に基づいて設計書の更新が必要な箇所を�
 
 ## Step 1: 変更されたファイルの特定
 
+`$depth` に数値が入っていればその値を、空文字なら `1` を使って以下を実行する:
+
 ```bash
-git diff --name-only HEAD~${0:-1}
+git diff --name-only HEAD~1
 ```
 
-$ARGUMENTS が数値の場合はそのコミット数分を対象。未指定なら直近1コミット。
 未コミット変更がある場合は `git diff --name-only` も含める。
 
 ## Step 2: チェックリスト照合

@@ -1,7 +1,7 @@
 ---
 name: complete-feature
 description: "機能設計書の完了処理。全タスク完了後、sync-checkで設計書の整合性を確認し、completed/に移動する。"
-user_invocable: true
+disable-model-invocation: true
 ---
 
 # 機能設計書の完了処理

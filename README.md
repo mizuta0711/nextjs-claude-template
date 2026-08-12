@@ -5,23 +5,42 @@ Claude Code での開発に最適化された Next.js プロジェクトテン�
 ## 含まれるもの
 
 ### Claude Code 設定
-- **CLAUDE.md** — プロジェクトルール（設計・実装フロー、DB変更ルール等）
-- **AGENTS.md** — Next.js 16 互換性の注意事項
-- **.claude/agents/** — エージェント定義（code-reviewer, coding-specialist, documentation-manager, project-manager）
-- **.claude/skills/** — スキル定義（build-check, code-review, design-review, new-feature, update-docs）
+- **CLAUDE.md** — プロジェクトルール（設計・実装フロー、規模判定、DB変更ルール等）
+- **.claude/settings.json** — フック定義（型チェック / DBバックアップ / 設計書同期チェック）
+- **.claude/hooks/** — フックスクリプト（Node.js）
+- **.claude/agents/** — エージェント定義（browser-tester, code-reviewer, coding-specialist, documentation-manager, product-advisor）
+- **.claude/skills/** — スキル定義（下表）
+- **.mcp.json** — MCP サーバー定義（Playwright）
+
+| スキル | 用途 |
+|--------|------|
+| `/new-feature` | 機能設計書をテンプレートから作成 |
+| `/design-review` | 設計レビュー（`feature` = Stage 1 / `tech` = Stage 2） |
+| `/code-review` | 実装コードのレビュー＋指摘対応 |
+| `/browser-test` | ブラウザでの動作確認・UX評価 |
+| `/build-check` | ビルド + lint の一括実行 |
+| `/update-docs` | 実装変更に基づく設計書の更新 |
+| `/sync-check` | 設計書 ↔ 実装の網羅的な突き合わせ |
+| `/complete-feature` | 機能設計書の完了処理（`completed/` へ移動） |
+| `/pre-push-check` | push 前の設計書同期チェック |
+| `/done` | 完了報告の出力 |
 
 ### 技術ドキュメント
-- **.claude/01_development_docs/** — 技術設計書テンプレート（アーキテクチャ、DB、API、エラー処理、型定義、サービス、フック、AIプロンプト）
+- **.claude/01_development_docs/** — 技術設計書テンプレート（アーキテクチャ、DB、API、エラー処理、型定義、サービス、フック、AIプロンプト、開発フローと規模判定）
 - **.claude/02_design_system/** — デザインシステムテンプレート
 - **.claude/03_library_docs/** — ライブラリガイド（Next.js 16, Zustand 5, NextAuth 4）
+- **.claude/browser-test-checklist.md** — ブラウザテストの共通チェックリスト
 
 ### 設計書テンプレート
-- **docs/設計書/** — API一覧、テーブル定義書、ER図、サービス一覧、フック一覧、対応表
-- **docs/features/** — 機能設計書テンプレート
+- **docs/設計書/** — API一覧、テーブル定義書、ER図、サービス一覧、フック一覧、対応表、同期記録（`.doc-sync.md`）
+- **docs/features/** — 機能設計書テンプレート（`TEMPLATE.md` / `completed/` / `pending/`）
 - **docs/reviews/** — レビュー結果の保存先
+- **docs/guide/** — 運用ガイド（バイブコーディング入門・運用、サンドボックス環境移行、オプションMCP追加）
+- **docs/diagrams/** — 役割比較図・開発フロー図・アーキテクチャ図
 
 ### ツール
 - **tools/export-to-sql.ts** — DB バックアップツール（テーブル定義を設定して使用）
+- **tools/scripts/generate-table-docs.ts** — `prisma/schema.prisma` からテーブル定義書を自動生成
 
 ## 前提スタック
 
@@ -73,8 +92,22 @@ VS Code が開いたら、コマンドパレット（`Ctrl+Shift+P`）→ **Dev 
 
 ## 設計・実装フロー
 
+変更規模 (S/M/L) に応じてフローを選択する。判定基準の詳細は [CLAUDE.md](./CLAUDE.md) と
+[.claude/01_development_docs/09_開発フローと規模判定.md](./.claude/01_development_docs/09_開発フローと規模判定.md) を参照。
+
 ```
-設計 → /design-review → 実装 → /code-review → /build-check → /update-docs → コミット
+S（軽微な変更）
+  実装 → /build-check → コミット → /done
+
+M（機能追加・API変更・UX変更なし）
+  設計 → 実装 → /code-review → /browser-test → /build-check → /update-docs → コミット → /done → プッシュ
+
+L（新機能・DBスキーマ変更・UX変更あり）
+  Stage 1（機能・画面設計）→ /design-review feature → ユーザー承認
+  Stage 2（技術設計）→ /design-review tech → 実装 → 以降 M と同じ
+
+プッシュ前（共通）
+  /pre-push-check → プッシュ
 ```
 
 ## DB スキーマ変更時

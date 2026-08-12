@@ -1,8 +1,10 @@
 /**
  * PreToolUse フック: git commit 前の型チェック
  *
- * Claude Code の `if` フィールドは公式仕様ではないため、コマンド判定は
- * 本スクリプト内で stdin の JSON (tool_input.command) を読んで行う。
+ * コマンド判定は本スクリプト内で stdin の JSON (tool_input.command) を読んで行う。
+ * settings.json 側で `if: "Bash(git commit *)"` を併用すれば無関係な Bash 呼び出しで
+ * 本スクリプトが起動しなくなる（`if` はパーミッションルール構文の公式フィールド）。
+ * ここでの判定は `if` の有無に関わらず動くようにするための二重防御。
  *
  * - `git commit` を含むコマンド時のみ型チェックを実行
  * - それ以外の Bash コマンドは即 exit 0 でスキップ

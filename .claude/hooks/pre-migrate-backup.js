@@ -1,8 +1,10 @@
 /**
  * PreToolUse フック: npx prisma migrate 実行前の DB バックアップ
  *
- * Claude Code の `if` フィールドは公式仕様ではないため、コマンド判定は
- * 本スクリプト内で stdin の JSON (tool_input.command) を読んで行う。
+ * コマンド判定は本スクリプト内で stdin の JSON (tool_input.command) を読んで行う。
+ * settings.json 側で `if: "Bash(npx prisma migrate *)"` を併用すれば無関係な Bash 呼び出しで
+ * 本スクリプトが起動しなくなる（`if` はパーミッションルール構文の公式フィールド）。
+ * ここでの判定は `if` の有無に関わらず動くようにするための二重防御。
  *
  * - `npx prisma migrate` を含むコマンド時のみ `tools/export-to-sql.ts` を実行
  * - それ以外の Bash コマンドは即 exit 0 でスキップ
