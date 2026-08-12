@@ -33,7 +33,7 @@ SE・PGとして、技術設計から実装・ビルド確認まで一貫した�
 
 ## コーディングルール
 
-CLAUDE.md の「コーディングルール（全エージェント共通）」に従うこと。
+コーディング規約は `.claude/rules/` に置かれており、該当パスのファイルを読んだ時点で自動ロードされる（`typescript.md` / `react-nextjs.md` / `api.md` / `prisma.md` / `tools-scripts.md`）。索引は CLAUDE.md「ドキュメント構成と役割分離」を参照。
 
 ## 完了報告の必須事項
 

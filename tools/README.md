@@ -75,7 +75,7 @@ npx tsx tools/scripts/generate-table-docs.ts
 
 ## `scripts/` ディレクトリの整理ルール
 
-`tools/scripts/` 以下には、プロジェクトの作業用スクリプトを **用途別フォルダ** で整理する（CLAUDE.md「スクリプトの整理ルール」参照）。
+`tools/scripts/` 以下には、プロジェクトの作業用スクリプトを **用途別フォルダ** で整理する（`.claude/rules/tools-scripts.md` 参照）。
 
 ### 推奨フォルダ構成（必要に応じて作成）
 
@@ -111,6 +111,7 @@ Prisma 以外の ORM（Drizzle、TypeORM 等）を使う場合は、これらの
 
 ## 関連ドキュメント
 
-- [CLAUDE.md](../CLAUDE.md) — DB スキーマ変更時の必須ルール、スクリプトの整理ルール
+- [.claude/rules/prisma.md](../.claude/rules/prisma.md) — DB スキーマ変更時の必須ルール
+- [.claude/rules/tools-scripts.md](../.claude/rules/tools-scripts.md) — スクリプトの整理ルール
 - [docs/guide/バイブコーディング運用ガイド.md](../docs/guide/バイブコーディング運用ガイド.md) — 全体の設計思想
 - [.claude/settings.json](../.claude/settings.json) — フック定義（DBバックアップフック）

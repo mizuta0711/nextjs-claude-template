@@ -5,7 +5,8 @@ Claude Code での開発に最適化された Next.js プロジェクトテン�
 ## 含まれるもの
 
 ### Claude Code 設定
-- **CLAUDE.md** — プロジェクトルール（設計・実装フロー、規模判定、DB変更ルール等）
+- **CLAUDE.md** — プロジェクトルール（設計・実装フロー、規模判定、報告フォーマット等）
+- **.claude/rules/** — パス条件付きルール（`paths:` に一致するファイルを読んだ時点で自動ロード）
 - **.claude/settings.json** — フック定義（型チェック / DBバックアップ / 設計書同期チェック）
 - **.claude/hooks/** — フックスクリプト（Node.js）
 - **.claude/statusline.js** — ステータス行（モデル / ブランチ / コンテキスト使用率 / 未コミット・未プッシュ数）
@@ -25,6 +26,15 @@ Claude Code での開発に最適化された Next.js プロジェクトテン�
 | `/complete-feature` | 機能設計書の完了処理（`completed/` へ移動） |
 | `/pre-push-check` | push 前の設計書同期チェック |
 | `/done` | 完了報告の出力 |
+
+| ルール | 発火条件 |
+|--------|---------|
+| `typescript.md` | `src/**/*.{ts,tsx}` |
+| `react-nextjs.md` | `src/**/*.tsx` |
+| `api.md` | `src/app/api/**`, `src/features/**/hooks/**`, `src/lib/services/**` |
+| `prisma.md` | `prisma/schema.prisma`, `tools/export-to-sql.ts` |
+| `tools-scripts.md` | `tools/**` |
+| `docs.md` | `docs/features/**`, `docs/設計書/**` |
 
 ### 技術ドキュメント
 - **.claude/01_development_docs/** — 技術設計書テンプレート（アーキテクチャ、DB、API、エラー処理、型定義、サービス、フック、AIプロンプト、開発フローと規模判定）
