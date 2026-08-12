@@ -2,7 +2,6 @@
 name: new-feature
 description: 新しい機能・改修・バグ修正の設計書をテンプレートから作成する。機能名を引数で指定する。
 argument-hint: "[機能名 or 修正内容]"
-disable-model-invocation: true
 ---
 
 # 新規設計書の作成
