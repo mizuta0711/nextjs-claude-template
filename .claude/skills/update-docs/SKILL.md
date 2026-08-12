@@ -12,13 +12,17 @@ allowed-tools: "Bash(git diff:*), Bash(git log:*), Bash(npx tsx tools/scripts/ge
 
 ## Step 1: 変更されたファイルの特定
 
-`$depth` に数値が入っていればその値を、空文字なら `1` を使って以下を実行する:
+既定（直近1コミット）の結果を以下に埋め込んである。コマンドを実行し直す必要はない。
 
-```bash
-git diff --name-only HEAD~1
-```
+**直近1コミットの変更:**
 
-未コミット変更がある場合は `git diff --name-only` も含める。
+!`git diff --name-only HEAD~1 HEAD`
+
+**未コミットの変更:**
+
+!`git diff --name-only`
+
+`$depth` に 2 以上の数値が指定されている場合のみ、`git diff --name-only HEAD~$depth HEAD` を実行して対象を広げる。
 
 ## Step 2: チェックリスト照合
 

@@ -9,18 +9,16 @@ allowed-tools: "Bash(git diff:*), Bash(git log:*), Grep, Glob, Read"
 
 ## Step 1: レビュー対象の特定
 
-$ARGUMENTS が指定されている場合はそのファイル/ディレクトリを対象。
-未指定の場合は直近の未コミット変更を対象:
+$ARGUMENTS が指定されている場合はそのファイル/ディレクトリを対象とする。
+未指定の場合は、以下に埋め込まれた結果から対象を決める（コマンドを実行し直す必要はない）。
 
-```bash
-git diff --name-only
-```
+**未コミットの変更:**
 
-変更がない場合は直近1コミットの変更ファイル:
+!`git diff --name-only`
 
-```bash
-git diff --name-only HEAD~1
-```
+**直近1コミットの変更**（未コミットの変更が無い場合はこちらを対象にする）:
+
+!`git diff --name-only HEAD~1 HEAD`
 
 ## Step 2: レビュー実施
 

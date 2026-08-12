@@ -1,7 +1,7 @@
 ---
 name: pre-push-check
 description: git push前に必ず実行する。未プッシュの全コミットが設計書に同期済みかをgrepで高速チェックする。
-allowed-tools: "Bash(git log:*), Bash(git diff:*), Grep, Read"
+allowed-tools: "Bash(git log:*), Bash(git diff:*), Bash(git diff-tree:*), Bash(git show:*), Bash(grep:*), Grep, Read"
 ---
 
 # プッシュ前 設計書同期チェック
@@ -10,24 +10,26 @@ git push の前に必ず実行すること。`docs/設計書/.doc-sync.md` に�
 
 ## Step 1: 未同期コミットの高速検出
 
-```bash
-# 未プッシュコミットのハッシュ一覧を取得
-HASHES=$(git log --format=%h @{upstream}..HEAD 2>/dev/null)
+チェック結果を以下に埋め込んである。コマンドを実行し直す必要はない。
 
-# 各ハッシュが .doc-sync.md に記録されているか grep で確認
-# ソースコード変更を含まないコミット（docs/, .claude/ のみ）はスキップ
-for hash in $HASHES; do
-  FILES=$(git diff-tree --no-commit-id --name-only -r $hash)
-  HAS_SRC=false
-  for f in $FILES; do
-    case "$f" in src/*|prisma/*) HAS_SRC=true; break ;; esac
+```!
+HASHES=$(git log --format=%h @{upstream}..HEAD 2>/dev/null)
+if [ -z "$HASHES" ]; then
+  echo "未プッシュのコミットはありません"
+else
+  for hash in $HASHES; do
+    FILES=$(git diff-tree --no-commit-id --name-only -r $hash)
+    HAS_SRC=false
+    for f in $FILES; do
+      case "$f" in src/*|prisma/*) HAS_SRC=true; break ;; esac
+    done
+    if [ "$HAS_SRC" = false ]; then
+      echo "SKIP: $hash (ソースコード変更なし)"
+      continue
+    fi
+    grep -q "$hash" docs/設計書/.doc-sync.md || echo "MISSING: $hash"
   done
-  if [ "$HAS_SRC" = false ]; then
-    echo "SKIP: $hash (ソースコード変更なし)"
-    continue
-  fi
-  grep -q "$hash" docs/設計書/.doc-sync.md || echo "MISSING: $hash"
-done
+fi
 ```
 
 ## Step 2: 判定
