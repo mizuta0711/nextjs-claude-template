@@ -32,8 +32,8 @@
     "ask": [
       "Bash(git reset:*)",
       "Bash(git checkout:*)",
-      "Bash(npx prisma migrate:*)",
-      "Bash(npx prisma db push:*)"
+      "Bash(*prisma migrate*)",
+      "Bash(*prisma db push*)"
     ],
     "deny": [
       "Read(./.env)",
@@ -47,7 +47,11 @@
       "Bash(rm -rf *)",
       "Bash(git push --force*)",
       "Bash(git push -f *)",
-      "Bash(npx prisma migrate reset*)"
+      "Bash(*prisma migrate reset*)",
+      "Read(//mnt/**)",
+      "Edit(//mnt/**)",
+      "Write(//mnt/**)",
+      "Bash(*/mnt/**)"
     ]
   },
   "hooks": {
@@ -80,7 +84,7 @@
         "hooks": [
           {
             "type": "command",
-            "if": "Bash(npx prisma migrate:*)",
+            "if": "Bash(*prisma migrate*)",
             "command": "node .claude/hooks/pre-migrate-backup.js",
             "timeout": 60,
             "statusMessage": "DB バックアップを実行中..."
