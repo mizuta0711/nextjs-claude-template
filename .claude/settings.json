@@ -14,6 +14,7 @@
       "Bash(git show:*)",
       "Bash(git branch:*)",
       "Bash(git add:*)",
+      "Bash(git push:*)",
       "Bash(npm run build)",
       "Bash(npm run lint)",
       "Bash(npm run dev)",
@@ -24,7 +25,6 @@
       "Bash(npx tsx tools/export-to-sql.ts)"
     ],
     "ask": [
-      "Bash(git push:*)",
       "Bash(git reset:*)",
       "Bash(git checkout:*)",
       "Bash(npx prisma migrate:*)",
