@@ -3,6 +3,11 @@
   "autoCompactEnabled": true,
   "autoCompactWindow": 500000,
   "enabledMcpjsonServers": ["playwright"],
+  "statusLine": {
+    "type": "command",
+    "command": "node .claude/statusline.js",
+    "padding": 1
+  },
   "permissions": {
     "allow": [
       "Read",

@@ -8,6 +8,7 @@ Claude Code での開発に最適化された Next.js プロジェクトテン�
 - **CLAUDE.md** — プロジェクトルール（設計・実装フロー、規模判定、DB変更ルール等）
 - **.claude/settings.json** — フック定義（型チェック / DBバックアップ / 設計書同期チェック）
 - **.claude/hooks/** — フックスクリプト（Node.js）
+- **.claude/statusline.js** — ステータス行（モデル / ブランチ / コンテキスト使用率 / 未コミット・未プッシュ数）
 - **.claude/agents/** — エージェント定義（browser-tester, code-reviewer, coding-specialist, documentation-manager, product-advisor）
 - **.claude/skills/** — スキル定義（下表）
 - **.mcp.json** — MCP サーバー定義（Playwright）
