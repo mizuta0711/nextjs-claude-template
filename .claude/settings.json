@@ -107,6 +107,36 @@
             "statusMessage": "設計書同期を確認中..."
           }
         ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Edit(src/**/*.{ts,tsx})",
+            "command": "node .claude/hooks/post-edit-lint.js",
+            "timeout": 30,
+            "statusMessage": "lint 自動修正中..."
+          },
+          {
+            "type": "command",
+            "if": "Write(src/**/*.{ts,tsx})",
+            "command": "node .claude/hooks/post-edit-lint.js",
+            "timeout": 30,
+            "statusMessage": "lint 自動修正中..."
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/subagent-stop-diff.js",
+            "timeout": 10
+          }
+        ]
       }
     ]
   }
