@@ -1,5 +1,21 @@
 # Next.js + Claude Code プロジェクトテンプレート
 
+> ## ⚠️ 新規開発には [claude-dev-harness](https://github.com/mizuta0711/claude-dev-harness) を使ってください
+>
+> 本テンプレートの後継として、環境非依存のコアを**プラグイン**として配信し、
+> 環境差分を薄いテンプレート層で吸収する **claude-dev-harness** に統合されました。
+>
+> ```bash
+> git clone https://github.com/mizuta0711/claude-dev-harness
+> node claude-dev-harness/tools/create-project.mjs --env nextjs --dest ./my-app
+> ```
+>
+> 統合版ではスキル・エージェント・フックが marketplace 経由で**自動更新**され、
+> テンプレート層も `/harness-core:harness-update` で追従できます
+> （本テンプレートの `docs/guide/派生プロジェクト適用手順.md` の置き換え）。
+>
+> **本リポジトリは既存プロジェクトの参照用として残しています。** 新規開発では使わないでください。
+
 Claude Code での開発に最適化された Next.js プロジェクトテンプレート。
 
 ## 含まれるもの
