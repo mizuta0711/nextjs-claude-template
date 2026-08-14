@@ -56,7 +56,7 @@ src/
 | ルール | 発火条件 | 内容 |
 |--------|---------|------|
 | `typescript.md` | `src/**/*.{ts,tsx}` | `any` 禁止、型定義 |
-| `react-nextjs.md` | `src/**/*.tsx` | memo/useCallback、Server/Client 分離、UI 実装 |
+| `react-nextjs.md` | `src/features/**/*.tsx`, `src/components/**/*.tsx`, `src/app/**/*.tsx` | memo/useCallback、Server/Client 分離、UI 実装 |
 | `api.md` | `src/app/api/**`, `src/features/**/hooks/**`, `src/lib/services/**` | API Route、API 型契約 |
 | `prisma.md` | `prisma/schema.prisma`, `tools/export-to-sql.ts` | DB 3点同期・バックアップ |
 | `tools-scripts.md` | `tools/**` | スクリプト整理 |

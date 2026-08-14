@@ -30,7 +30,7 @@ Claude Code での開発に最適化された Next.js プロジェクトテン�
 | ルール | 発火条件 |
 |--------|---------|
 | `typescript.md` | `src/**/*.{ts,tsx}` |
-| `react-nextjs.md` | `src/**/*.tsx` |
+| `react-nextjs.md` | `src/features/**/*.tsx`, `src/components/**/*.tsx`, `src/app/**/*.tsx` |
 | `api.md` | `src/app/api/**`, `src/features/**/hooks/**`, `src/lib/services/**` |
 | `prisma.md` | `prisma/schema.prisma`, `tools/export-to-sql.ts` |
 | `tools-scripts.md` | `tools/**` |
