@@ -97,6 +97,18 @@ VS Code が開いたら、コマンドパレット（`Ctrl+Shift+P`）→ **Dev 
 - **必ず WSL から `code .` で起動する** — Windows 側から VS Code を開くと `${localEnv:HOME}` が Windows のホームディレクトリを指してしまい、Claude Code の認証が引き継がれません
 - WSL 側で `~/.claude.json` が存在しない場合は `touch ~/.claude.json` で作成してからコンテナを起動してください
 
+### ⚠️ `bypassPermissions` 設定について
+
+`.vscode/settings.json`（gitignore 対象。手元の作業ツリーにのみ存在する場合があります）には
+`claudeCode.initialPermissionMode: "bypassPermissions"` /
+`claudeCode.allowDangerouslySkipPermissions: true` が設定されていることがあります。
+
+- この設定は **Dev Container 内でのみ使う想定** です。コンテナによる隔離があって初めて安全に成立します
+- **ホスト（Windows）で直接このフォルダを開くと、ホスト環境に対して権限確認なしでコマンドが実行されます**。
+  ホストで開く場合は、`.vscode/settings.json` の上記 2 項目を無効化するか、
+  Claude Code 起動後に権限モードを既定（確認あり）に戻してください
+- 派生プロジェクトへコピーする際も、この設定を無自覚に持ち込まないよう注意してください
+
 ---
 
 ## 使い方
