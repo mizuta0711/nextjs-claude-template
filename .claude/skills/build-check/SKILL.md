@@ -6,6 +6,14 @@ allowed-tools: "Bash(npm run build), Bash(npm run lint), Bash(npx tsc --noEmit:*
 
 # ビルド＋品質チェック
 
+## 事前確認（必須）
+
+実行前に `package.json` と `node_modules/` の有無を確認する。
+
+- どちらかが存在しない場合は、**コマンドを実行せずにスキップ**し、以下の 1 行で報告して終了する:
+  `ビルド＋品質チェックをスキップしました: package.json / node_modules が見つかりません（テンプレート単体状態）。npm install 後に再実行してください。`
+- 両方が存在する場合のみ、以下の手順に進む。
+
 以下を順番に実行し、結果をまとめて報告してください。
 
 ## 実行コマンド
